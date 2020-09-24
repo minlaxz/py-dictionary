@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dictionary
+Type=Application
+Path=/home/than/projects/python/desktop-app/dictionary
+Icon=/home/than/projects/python/desktop-app/dictionary/assets/png/icon.png
+Exec=python3 /home/than/projects/python/desktop-app/dictionary/app.py
+Categories=Education
+Terminal=false
