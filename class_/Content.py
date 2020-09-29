@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import pyttsx3
 import googletrans
-
+from myanmar import language
 
 from class_.SearchBar import *
 from class_.SearchContent import *
@@ -40,7 +40,10 @@ class Content(QVBoxLayout):
     #####################################
     # searchBar event func
     def search_input_change(self, word):
-        self.searchContent.search_eng_word(word)
+        if language.ismyanmar(word):
+            self.searchContent.search_mm_word(word)
+        else:
+            self.searchContent.search_eng_word(word)
 
     def search_google(self):
         word = self.searchBar.search_input.text()

@@ -43,6 +43,11 @@ class Dict(DB):
         self.cur.execute(sql, (f"{word}%", self.limit))
         return self.cur.fetchall()
 
+    def search_mm(self, word):
+        sql = f"SELECT * FROM {self.table_name} WHERE myanmar LIKE ? LIMIT ?"
+        self.cur.execute(sql, (f"%{word}%", self.limit))
+        return self.cur.fetchall()
+
 
 class History(DB):
     def __init__(self):

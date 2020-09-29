@@ -68,6 +68,12 @@ class SearchContent(QHBoxLayout):
         self.words = self.db.search_eng(word)
         if self.words != None:
             self.show_words(self.words)
+    
+    def search_mm_word(self, word):
+        # db
+        self.words = self.db.search_mm(word)
+        if self.words != None:
+            self.show_words(self.words)
     # search from google
 
     def search_eng_word_google(self, word, is_set_history=True):

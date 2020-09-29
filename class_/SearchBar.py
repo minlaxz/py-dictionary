@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import pyttsx3
+from myanmar import language
 
 
 class SearchBar(QHBoxLayout):
@@ -21,17 +22,18 @@ class SearchBar(QHBoxLayout):
         self.addWidget(self.search_sound)
 
     def __setConfig(self):
-        self.search_input.setPlaceholderText('Search...')
+        self.search_input.setPlaceholderText('Search English && Myanmar...')
         self.search_sound.setIcon(QIcon(QPixmap('assets/png/sound.png')))
         self.search_input.setToolTip('Ctrl+S')
         self.search_sound.setToolTip('Enter')
 
     def speech_word(self):
         word = self.search_input.text()
-        # check
         if word != '':
-            self.speech.say(word)
-            self.speech.runAndWait()
+            # check language
+            if not language.ismyanmar(word):
+                self.speech.say(word)
+                self.speech.runAndWait()
 
     #####################################
     # event
