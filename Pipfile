@@ -12,6 +12,7 @@ wikipedia = "*"
 googletrans = "*"
 pyttsx3 = "*"
 pyinstaller = "*"
+python-myanmar = "*"
 
 
 [requires]
