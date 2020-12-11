@@ -6,8 +6,6 @@ import json
 class MenuBar(QMenuBar):
     def __init__(self):
         super().__init__()
-        self.is_googleAction = False
-        self.is_wikipediaAction = False
 
         self.__initUI()
         self.__setConfig()
@@ -17,9 +15,7 @@ class MenuBar(QMenuBar):
         self.setFixedHeight(30)
         # get config
         config = self.search_config_get()
-        if config != None:
-            self.is_googleAction = config['is_google']
-            self.is_wikipediaAction = config['is_wiki']
+        self.is_googleAction, self.is_wikipediaAction = config.values() if config else (False, False)
         # set action
         self.googleAction.setChecked(self.is_googleAction)
         self.wikipediaAction.setChecked(self.is_wikipediaAction)
@@ -69,8 +65,9 @@ class MenuBar(QMenuBar):
                       'is_wiki': self.is_wikipediaAction}
             with open('assets/db/search_config.json', 'w') as f:
                 f.write(json.dumps(config))
-        except:
+        except Exception as e:
             print('search config set error')
+            print(e)
 
     def search_config_get(self):
         try:

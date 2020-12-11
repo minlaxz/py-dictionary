@@ -92,8 +92,9 @@ class SearchContent(QHBoxLayout):
                     # words.append(result)
                     words.insert(0, result)
                     self.show_words(words)
-            except:
+            except Exception as e:
                 print('google search error')
+                print(e)
 
     # search wikipedia
     def search_eng_word_wikipedia(self, word, is_set_history=True):
