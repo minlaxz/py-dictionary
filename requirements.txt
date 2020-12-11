@@ -1,0 +1,6 @@
+pyqt5
+wikipedia
+googletrans==3.1.0a0
+pyttsx3
+pyinstaller
+python-myanmar
