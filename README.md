@@ -1,7 +1,14 @@
 # py-dictionary
 
-# build command
+if you're using Ubuntu
+```
+sudo apt install libespeak1 # pyttsx3 needs this
+```
+
+
+build this,
+```
 pyinstaller -F app.spec
+```
 
-
-<img width="600" height="auto"  src="https://github.com/Than-coder/py-dictionary/blob/master/dictionary-screenshort.png" alt="screenshort" />
+<img width="600" height="auto"  src="./dictionary-screenshort.png" alt="screenshort" />
